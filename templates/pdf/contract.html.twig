@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Contrat de Prestation de Services</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 20px;
+				line-height: 1.6;
+			}
+			h1 {
+				text-align: center;
+				color: #333;
+			}
+			.signature {
+				margin-top: 40px;
+				text-align: center;
+			}
+			img {
+				max-width: 400px;
+				max-height: 200px;
+				border: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Contrat de Prestation de Services</h1>
+		<p>Ce contrat est conclu entre :</p>
+		<ul>
+			<li>
+				<strong>Prestataire :</strong>
+				{{ companyName }}</li>
+			<li>
+				<strong>Client :</strong>
+				{{ clientName }}</li>
+		</ul>
+		<p>
+			<strong>Date :</strong>
+			{{ contractDate }}</p>
+		<div class="contract-details">
+			<p>{{ contractDetails }}</p>
+		</div>
+		<div class="signature">
+			<h3>Signature du Client :</h3>
+			{% if signatureData is defined and signatureData is not empty %}
+				<img src="{{ signatureData }}" alt="Signature du client">
+			{% else %}
+				<p>Aucune signature enregistrée.</p>
+			{% endif %}
+		</div>
+	</body>
+</html>

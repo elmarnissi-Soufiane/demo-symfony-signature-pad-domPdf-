@@ -1,0 +1,156 @@
+{# <!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contrat de Prestation de Services</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 20px;
+				line-height: 1.6;
+			}
+			h1 {
+				text-align: center;
+				color: #333;
+			}
+			.signature-section {
+				margin-top: 40px;
+				text-align: center;
+			}
+			canvas {
+				border: 1px solid #ccc;
+			}
+			img {
+				max-width: 400px;
+				max-height: 200px;
+				border: 1px solid #ccc;
+			}
+		</style>
+		     <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/5.0.4/signature_pad.umd.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Contrat de Prestation de Services</h1>
+	<p>Ce contrat est conclu entre :</p>
+	<ul>
+		<li>
+			<strong>Prestataire :</strong>
+			{{ companyName }}</li>
+		<li>
+			<strong>Client :</strong>
+			{{ clientName }}</li>
+	</ul>
+	<p>
+		<strong>Date :</strong>
+		{{ contractDate }}</p>
+	<div class="contract-details">
+		<p>{{ contractDetails }}</p>
+	</div>
+	<div class="signature-section">
+		<h3>Signature du Client</h3>
+		<canvas id="signature-pad" width="400" height="200"></canvas>
+		<div>
+			<button id="clear">Effacer</button>
+			<button id="save">Enregistrer la signature</button>
+		</div>
+		<form id="contract-form" method="POST" action="{{ path('app_generate_contract') }}">
+			<input type="hidden" id="signature-input" name="signature">
+			<button type="submit">Générer le PDF</button>
+		</form>
+		{% if signatureData is defined and signatureData is not empty %}
+			<h4>Signature enregistrée :</h4>
+			<img src="{{ signatureData }}" alt="Signature du client">
+		{% endif %}
+	</div>
+	 <script>
+																        const canvas = document.getElementById('signature-pad');
+																        const signaturePad = new SignaturePad(canvas);
+																
+																        // Effacer la signature
+																        document.getElementById('clear').addEventListener('click', () => signaturePad.clear());
+																
+																        // Enregistrer la signature
+																        document.getElementById('save').addEventListener('click', () => {
+																            if (!signaturePad.isEmpty()) {
+																                document.getElementById('signature-input').value = signaturePad.toDataURL();
+																            } else {
+																                alert('Veuillez fournir une signature avant d’enregistrer.');
+																            }
+																        });
+																    </script>
+</body></html>#}<!DOCTYPE html><html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contrat de Prestation de Services</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+			line-height: 1.6;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+		.signature-section {
+			margin-top: 40px;
+			text-align: center;
+		}
+		canvas {
+			border: 1px solid #ccc;
+		}
+		img {
+			max-width: 400px;
+			max-height: 200px;
+			border: 1px solid #ccc;
+		}
+	</style>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/5.0.4/signature_pad.umd.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Contrat de Prestation de Services</h1>
+	<p>Ce contrat est conclu entre :</p>
+	<ul>
+		<li>
+			<strong>Prestataire :</strong>
+			{{ companyName }}</li>
+		<li>
+			<strong>Client :</strong>
+			{{ clientName }}</li>
+	</ul>
+	<p>
+		<strong>Date :</strong>
+		{{ contractDate }}</p>
+	<div class="contract-details">
+		<p>{{ contractDetails }}</p>
+	</div>
+	<div class="signature-section">
+		<h3>Signature du Client</h3>
+		<canvas id="signature-pad" width="400" height="200"></canvas>
+		<div>
+			<button id="clear">Effacer</button>
+			<button id="save">Enregistrer la signature</button>
+		</div>
+		<form id="contract-form" method="POST" action="{{ path('app_generate_contract') }}">
+			<input type="hidden" id="signature-input" name="signature">
+			<button type="submit">Générer le PDF</button>
+		</form>
+	</div>
+	 <script>
+						        const canvas = document.getElementById('signature-pad');
+						        const signaturePad = new SignaturePad(canvas);
+						
+						        // Effacer la signature
+						        document.getElementById('clear').addEventListener('click', () => signaturePad.clear());
+						
+						        // Enregistrer la signature
+						        document.getElementById('save').addEventListener('click', () => {
+						            if (!signaturePad.isEmpty()) {
+						                document.getElementById('signature-input').value = signaturePad.toDataURL();
+						            } else {
+						                alert('Veuillez fournir une signature avant d’enregistrer.');
+						            }
+						        });
+						    </script>
+</body></html>
