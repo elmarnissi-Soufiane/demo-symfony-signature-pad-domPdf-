@@ -33,7 +33,7 @@ class PdfController extends AbstractController
         // Données pour le contrat
         $contractData = [
             'companyName' => 'Votre Société SARL',
-            'clientName' => 'M. John Doe',
+            'clientName' => 'M. Elmarnissi Soufiane',
             'contractDate' => (new \DateTime())->format('d/m/Y'),
             'contractDetails' => 'Ce contrat formalise l’accord entre les deux parties pour une prestation de services informatique.',
             'signatureData' => $signatureData, // Passe les données de la signature à la vue
